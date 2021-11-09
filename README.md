@@ -23,11 +23,14 @@ $ export DOMAIN_NAME={{the DNS-registered domain name to serve images from}}
 $ git remote add dokku dokku@$DOKKU_HOST:$DOKKU_APP
 ```
 
+Ensure that the path $REMOTE_IMAGE_PATH exists on the server.
+
 Create and deploy the app:
 
 ```sh
 $ dokku apps:create $DOKKU_APP
 $ dokku docker-options:add $DOKKU_APP deploy "-v imageflow_data:/home/imageflow/data -v $REMOTE_IMAGE_PATH:/home/imageflow/images"
+$ dokku domains:set $DOKKU_APP $DOMAIN_NAME
 $ git push dokku
 ```
 
@@ -36,6 +39,8 @@ If necessary, install the letsencrypt plugin:
 ```sh
 $ dokku-root plugin:install https://github.com/dokku/dokku-letsencrypt.git
 ```
+
+Ensure that $DOMAIN_NAME resolves to point to $DOKKU_HOST
 
 Get a Let's Encrypt certificate:
 
