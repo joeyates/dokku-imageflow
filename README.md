@@ -73,3 +73,11 @@ Get the actual certificate:
 $ dokku config:unset --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_SERVER
 $ dokku letsencrypt $DOKKU_APP
 ```
+
+# Usage
+
+Params:
+https://imageresizing.net/docs/basics
+
+Docs:
+https://docs.imageflow.io/introduction.html
