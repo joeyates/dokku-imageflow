@@ -22,7 +22,6 @@ Create and deploy the app:
 ```sh
 $ dokku apps:create $DOKKU_APP
 $ dokku docker-options:add $DOKKU_APP deploy "-v imageflow_data:/home/imageflow/data -v $REMOTE_IMAGE_PATH:/home/imageflow/images"
-$ dokku domains:set $DOKKU_APP $APP_DOMAIN
 $ git push dokku
 ```
 
