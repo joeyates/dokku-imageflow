@@ -8,10 +8,11 @@ Prepare your local config:
 
 ```sh
 $ alias dokku='ssh -t dokku@$DOKKU_HOST 2>/dev/null'
-$ export DOKKU_HOST={{your Dokku host}}
-$ export DOKKU_APP={{the name for your new Dokku app}}
-$ export REMOTE_IMAGE_PATH={{remote path to images}}
-$ export APP_DOMAIN={{the DNS-registered domain name to serve images from}}
+```
+
+Create .envrc.private with your settings
+
+```sh
 $ git remote add dokku dokku@$DOKKU_HOST:$DOKKU_APP
 ```
 
