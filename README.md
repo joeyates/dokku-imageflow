@@ -25,35 +25,17 @@ $ dokku apps:create $DOKKU_APP
 $ dokku docker-options:add $DOKKU_APP deploy "-v imageflow_data:/home/imageflow/data -v $REMOTE_IMAGE_PATH:/home/imageflow/images"
 $ git push dokku
 ```
-
-If necessary, install the letsencrypt plugin:
-
-```sh
-$ dokku-root plugin:install https://github.com/dokku/dokku-letsencrypt.git
 ```
 
-Ensure that $APP_DOMAIN resolves to point to $DOKKU_HOST
-
-Get a Let's Encrypt certificate:
+Ensure that `$APP_DOMAIN` resolves to point to `$DOKKU_HOST`
 
 ```sh
-$ dokku certs:generate $DOKKU_APP $APP_DOMAIN
-$ dokku proxy:ports-set $DOKKU_APP "http:80:3000 https:443:3000"
+$ dokku domains:set $DOKKU_APP $APP_DOMAIN
 $ dokku config:set --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_EMAIL=$DOMAIN_EMAIL
+$ dokku letsencrypt:enable $DOKKU_APP
 ```
 
-Make sure everything works via Let's Encrypt's staging server:
-
 ```sh
-$ dokku config:set --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_SERVER=staging
-$ dokku letsencrypt $DOKKU_APP
-```
-
-Get the actual certificate:
-
-```sh
-$ dokku config:unset --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_SERVER
-$ dokku letsencrypt $DOKKU_APP
 ```
 
 # Usage
