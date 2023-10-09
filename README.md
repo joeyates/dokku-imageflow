@@ -38,6 +38,33 @@ $ dokku $DOKKU_APP ports:set http:80:3000 https:443:3000
 $ git push dokku
 ```
 
+# Optional Configuration
+
+## `IMAGEFLOW_PORT`
+
+By default, the Dockerized server runs on port 3000
+but this can be configured as follows:
+
+```sh
+$ export IMAGEFLOW_PORT=...
+$ dokku ports:set $DOKKU_APP http:80:$IMAGEFLOW_PORT https:443:$IMAGEFLOW_PORT
+$ dokku config:set IMAGEFLOW_PORT=$IMAGEFLOW_PORT
+```
+
+## `IMAGEFLOW_PATH_PREFIX`
+
+By default, images with be served from the configured host
+with a prefix of `images/`, e.g. 'https://myhost.example.com/images/foo.jpeg'.
+
+Set `IMAGEFLOW_PATH_PREFIX` to use another prefix instead of `images`.
+
+```sh
+$ export IMAGEFLOW_PATH_PREFIX=...
+$ dokku config:set $DOKKU_APP IMAGEFLOW_PATH_PREFIX=$IMAGEFLOW_PATH_PREFIX
+```
+
+Make sure the value yuou set ends with a '/'.
+
 # Usage
 
 Params:
