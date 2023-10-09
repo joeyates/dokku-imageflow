@@ -1,6 +1,6 @@
 # dokku-imageflow
 
-Run imageflow_server as a Dokku app
+Run `imageflow_server` as a Dokku app
 
 # Dokku Setup
 
@@ -16,7 +16,7 @@ Create .envrc.private with your settings
 $ git remote add dokku dokku@$DOKKU_HOST:$DOKKU_APP
 ```
 
-Ensure that the path $REMOTE_IMAGE_PATH exists on the server.
+Ensure that the path `$REMOTE_IMAGE_PATH` exists on the server.
 
 Create and deploy the app:
 
