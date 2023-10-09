@@ -22,9 +22,6 @@ Create and deploy the app:
 
 ```sh
 $ dokku apps:create $DOKKU_APP
-$ dokku docker-options:add $DOKKU_APP deploy "-v imageflow_data:/home/imageflow/data -v $REMOTE_IMAGE_PATH:/home/imageflow/images"
-$ git push dokku
-```
 ```
 
 Ensure that `$APP_DOMAIN` resolves to point to `$DOKKU_HOST`
@@ -36,6 +33,9 @@ $ dokku letsencrypt:enable $DOKKU_APP
 ```
 
 ```sh
+$ dokku docker-options:add $DOKKU_APP deploy "-v imageflow_data:/home/imageflow/data -v $REMOTE_IMAGE_PATH:/home/imageflow/images"
+$ dokku $DOKKU_APP ports:set http:80:3000 https:443:3000
+$ git push dokku
 ```
 
 # Usage
