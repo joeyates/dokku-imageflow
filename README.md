@@ -39,7 +39,7 @@ Get a Let's Encrypt certificate:
 ```sh
 $ dokku certs:generate $DOKKU_APP $APP_DOMAIN
 $ dokku proxy:ports-set $DOKKU_APP "http:80:3000 https:443:3000"
-$ dokku config:set --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_EMAIL=admin@$APP_TLD
+$ dokku config:set --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_EMAIL=$DOMAIN_EMAIL
 ```
 
 Make sure everything works via Let's Encrypt's staging server:
