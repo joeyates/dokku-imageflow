@@ -8,4 +8,4 @@ echo "Running imageflow_server"
   --bind-address 0.0.0.0 \
   --port $IMAGEFLOW_PORT \
   --data-dir /home/imageflow/data/ \
-  --mount /images/:ir4_local:/home/imageflow/images/
+  --mount /$IMAGEFLOW_PATH_PREFIX:ir4_local:/home/imageflow/images/
